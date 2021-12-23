@@ -1,2 +1,8 @@
 
+skymap/*
+!skymap/public/
+!skymap/routes/
+!skymap/views/
+*.less
+*.DS_Store
 *.pyc

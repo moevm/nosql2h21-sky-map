@@ -1,0 +1,31 @@
+extends layout
+
+block content
+    div(class='search')
+        button(class='import_buttons'): img(src="../stylesheets/src/back-arrow.png")
+        form(class='search_form')
+            input(type="text" id="search" name="search")
+            img(src="../stylesheets/src/pinpng.png" class='searchimg')
+    div(class='columns')
+        div(class= 'import-export')
+        div(class='main')
+            div
+                h1 Фильтры
+                div(class='filters')
+                    label Тип
+                div(class='filters')
+                    label Расстояние от солнца
+                div(class='filters')
+                    label широта и долгота
+                div(class='filters')
+                    label Яркость
+                div(class='filters')
+                    label Средняя угловая скорость
+                h1 Фильтры для галлактик
+                div(class='filters')
+                    label Тип галлактики
+                    label логарифм диаметра
+            div
+                h1 Результат поиска
+                div
+                    div(class='search_result')

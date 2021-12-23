@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  div(class='columns')
+    div(class= 'import-export')
+    div(class='main')
+      h1= title
+      p Веб-каталог небесных тел #{title}
+      ui
+        li
+          button(class='main_buttons') Кнопка 1
+        li
+          button(class='main_buttons') Кнопка 2
+        li
+          button(class='main_buttons') Кнопка 3
+    div(class= 'import-export')
+      div(class='import-export-sec')
+        button(class='import_buttons'): img(src="../stylesheets/src/import.png")
+        button(class='export_buttons'): img(src="../stylesheets/src/export.png")
