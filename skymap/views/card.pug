@@ -1,0 +1,24 @@
+extends layout
+
+block content
+    div(class='wrap-card')
+        h1(style='font-size: 40px') #{Name}
+        div(class='main-card')
+            div(class='card-info')
+                p Тип 0000
+                p PGS 0000
+                p Имя 0000
+                p Расстояние от солнца 0000
+                p Широта 0000
+                p Долгота 0000
+                p Яркость 0000
+                p Средняя угловая скорость 0000
+
+            img(src="../stylesheets/src/saturn.png" class='card-img')
+            div(class='back-exp')
+                div(style='margin-bottom:50vh')
+                    button(class='b-back'): img(src="../stylesheets/src/back-arrow.png" class='search-img')
+                div
+                    button(class='export_buttons_for_card'): img(src="../stylesheets/src/export.png" class='card-exp')
+
+
