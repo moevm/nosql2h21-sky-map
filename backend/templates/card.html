@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <link rel="stylesheet", href="../../skymap/public/stylesheets/style.css">
+    <script src="../../skymap/public/jquery/jquery.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+    <script src="../../skymap/public/javascripts/scripts.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="wrap-card">
+            <h1 style="font-size: 40px;">{{obj.name}}</h1>
+            <div class="main-card">
+                <div class="card-info">
+                    <p>PGC {{obj.pgc}}</p>
+                    <p>Имя {{obj.name}}</p>
+                    <p>Тип {{obj.type}}</p>
+                    <p>Дистанция {{obj.coords.distance}}</p>
+                    <p>Галактическая широта {{obj.coords.galactic_longitude}}</p>
+                    <p>Галактическая долгота {{obj.coords.galactic_latitude}}</p>
+                    <p>Наличие перемычки {{obj.galactic_info.barred}}</p>
+                    <p>Множественная галактика {{obj.galactic_info.multiple}}</p>
+                    <p>Наличие колец {{obj.galactic_info.rings}}</p>
+                    <p>Компактная галактика {{obj.galactic_info.compact}}</p>
+                    <p>Логарифм диаметра {{obj.galactic_info.diameter_log}}</p>                    
+                    <p>Яркость {{obj.brightness}}</p>
+                    <p>Угловая скорость {{obj.radial_speed}}</p>
+                </div>
+                <img src="../../skymap/public/stylesheets/src/saturn.png" class="card-img">
+                <div class="back-exp">
+                    <a href="/sky_map_list">Back</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

@@ -17,9 +17,11 @@
         <div class="col">
             <div class="search-main">
                 <div class="main-filters"></div>
+                <div class="add-object">
+                    <a href="/add_new_object">Добавить</a>
+                </div>
                 <div class="result-search-main">
                     <h1>Результаты поиска</h1>
-                    <div>{{data.sky_objects}}</div>
                     {% for object in data.sky_objects %}
                     <h2>Название: <a href="/sky_object?object_pgc={{object.pgc}}">{{object.name}}</a></h2>
                     <p>Тип: {{object.type}}</p>
@@ -28,11 +30,11 @@
                 </div>
                 <div class="prev-next-links">
                     {% if data.links.prev %}
-                    <a href="{{data.links.prev.href}}">Prev</a>
+                    <a href="{{data.links.prev.href}}">Пред</a>
                     {% else %}
                     {% endif %}
                     {% if data.links.next %}
-                    <a href="{{data.links.next.href}}">Next</a>
+                    <a href="{{data.links.next.href}}">След</a>
                     {% else %}
                     {% endif %}
                 </div>

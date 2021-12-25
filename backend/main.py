@@ -2,6 +2,7 @@ from flask import Flask, request, url_for, render_template
 import pymongo
 import json
 from bson import json_util
+from werkzeug.utils import redirect
 
 ### Setup DB
 client = pymongo.MongoClient()
@@ -23,6 +24,10 @@ def sky_object():
     pgc = request.args.get("object_pgc", 1)
     doc = collection.find_one({"pgc": pgc}, {"_id": 0})
     return render_template("card.html", obj=doc)
+
+@app.route("/add_new_object")
+def add_new_object():
+    return render_template("object.html")
 
 ### list elements
 @app.route("/sky_map_list", methods=["GET"])
@@ -51,11 +56,6 @@ def sky_map_list():
         links["next"] = {
             "href": url_for(".sky_map_list", page=page + 1, _external=True)
         }
-
-    # for doc in docs:
-    #     doc["link"] = {
-    #         "href": url_for(".sky_object", object_pgc=doc["pgc"], _external=True)
-    #     }
     
     ### here we will return list of sky objects and links for buttons
     info = {
@@ -68,6 +68,25 @@ def sky_map_list():
 @app.route("/sky_map_insert", methods=["POST"])
 def sky_map_insert():
     ### here we take json from request. make sure that in the form we are sending json with right structure
-    sky_object = request.get_json()
+    sky_object_raw = request.form
+    sky_object = {
+        "pgc": sky_object_raw["pgc"],
+        "name": sky_object_raw["name"],
+        "type": sky_object_raw["type"],
+        "coords": {
+            "distance": sky_object_raw["distance"],
+            "galactic_longitude": sky_object_raw["galactic_longitude"],
+            "galactic_latitude": sky_object_raw["galactic_latitude"]
+        },
+        "galactic_info" : {
+            "barred": sky_object_raw["barred"],
+            "multiple": sky_object_raw["multiple"],
+            "rings": sky_object_raw["rings"],
+            "compact": sky_object_raw["compact"],
+            "diameter_log": sky_object_raw["diameter_log"]
+        },
+        "brightness": sky_object_raw["brightness"],
+        "radial_speed": sky_object_raw["radial_speed"]
+    }
     collection.insert_one(sky_object)
-    return json.dump(sky_object)
+    return redirect("/sky_map_list", code=302)
