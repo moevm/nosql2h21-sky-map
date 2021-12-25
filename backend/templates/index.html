@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <link rel="stylesheet", href="../../skymap/public/stylesheets/style.css">
+    <script src="../../skymap/public/jquery/jquery.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+    <script src="../../skymap/public/javascripts/scripts.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="columns">
+            <div class="import-export"></div>
+            <div class="main">
+                <h1 style="font-size: 40px;">{{title}}</h1>
+                <p style="font-size: 30px;">Веб-каталог небесных тел {{title}}</p>
+                <ul>
+                    <li>
+                        <form action="/sky_map_list">
+                            <input class="main_buttons" type="submit" value="Поиск" />
+                        </form>
+                    </li>
+                    <li>
+                        <button class="main_buttons">Мне повезет</button>
+                    </li>
+                    <li>
+                        <button class="main_buttons">Статистика</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="import-export">
+                <button class="import_buttons">
+                    <img src="../../skymap/public/stylesheets/src/import.png" class="im_ex_main">
+                </button>
+                <button class="export_buttons">
+                    <img src="../../skymap/public/stylesheets/src/export.png" class="im-ex-main">
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
