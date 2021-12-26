@@ -34,20 +34,22 @@
                 </div>
                
                 <div class="result-search-main">
-                    <h1>Результаты поиска</h1>
-                    <div class="add-object">
-                        <a href="/add_new_object" class="min-b">Добавить</a>
-                    </div>
-                    <div class="prev-next-links">
-                        {% if data.links.prev %}
-                        <a href="{{data.links.prev.href}}" class="min-b">Пред</a>
-                        {% else %}
-                        {% endif %}
-                        {% if data.links.next %}
-                        <a href="{{data.links.next.href}}" class="min-b">След</a>
-                        {% else %}
-                        {% endif %}
-                    </div>
+					<div class="info-s">
+                    	<h1>Результаты поиска</h1>
+                   	 	<div class="add-object">
+                        	<a href="/add_new_object" class="min-b">Добавить</a>
+                    	</div>
+                   	 	<div class="prev-next-links">
+                        	{% if data.links.prev %}
+                        	<a href="{{data.links.prev.href}}" class="min-b">Пред</a>
+                        	{% else %}
+                        	{% endif %}
+                        	{% if data.links.next %}
+                        	<a href="{{data.links.next.href}}" class="min-b">След</a>
+                        	{% else %}
+                        	{% endif %}
+                    	</div>
+					</div>	
                     <div class='result-search'>
                         {% for object in data.sky_objects %}
                         <div class="card">
