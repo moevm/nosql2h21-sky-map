@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/stylesheets/style.css') }}">
+    <script src="{{ url_for('static',filename='styles/jquery/jquery.js')}}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+    <script src="{{ url_for('static',filename='styles/javascripts/scripts.js') }}"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="search">
+            <a href="/" class='b-back'>
+                <img src="{{ url_for('static',filename='styles/stylesheets/src/back-arrow.png') }}" class='search-img'>
+            </a>
+            <form class='search_form'>
+                <input type="text" id="search" name="search" class='input-s' placeholder="Введите название/pgs номер">
+                <button class='b-back'>
+                    <img src="{{ url_for('static',filename='styles/stylesheets/src/pinpng.png') }}" class='search-img'>
+                </button>
+            </form>
+        </div>
+        <div class="col">
+            <div class="import-export-s">
+                <img src="{{ url_for('static',filename='styles/stylesheets/src/export.png') }}" class='search-img'>
+
+            </div>
+            <div class="search-main">
+                <div class="main-filters">
+                    <h1> Фильтры</h1> 
+                </div>
+               
+                <div class="result-search-main">
+					<div class="info-s">
+                    	<h1>Результаты поиска</h1>
+                   	 	<div class="add-object">
+                        	<a href="/add_new_object" class="min-b">Добавить</a>
+                    	</div>
+                   	 	<div class="prev-next-links">
+                        	{% if data.links.prev %}
+                        	<a href="{{data.links.prev.href}}" class="min-b">Пред</a>
+                        	{% else %}
+                        	{% endif %}
+                        	{% if data.links.next %}
+                        	<a href="{{data.links.next.href}}" class="min-b">След</a>
+                        	{% else %}
+                        	{% endif %}
+                    	</div>
+					</div>	
+                    <div class='result-search'>
+                        {% for object in data.sky_objects %}
+                        <div class="card">
+                            <h2>Название: <a href="/sky_object?object_pgc={{object.pgc}}">{{object.name}}</a></h2>
+                            <p>Тип: {{object.type}}</p>
+                            <p>Номер: {{object.pgc}}</p>
+                        </div>
+                        {% endfor %}
+                 </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</body>
